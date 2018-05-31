@@ -16,6 +16,8 @@ public class EditorPalette : MonoBehaviour {
     private Sprite playerStart;
     [SerializeField]
     private Sprite coin;
+    [SerializeField]
+    private Sprite negativeCoin;
 
     public class TilePaint
     {
@@ -69,6 +71,14 @@ public class EditorPalette : MonoBehaviour {
         {
             blockType = BlockType.Coin,
             sprite = coin
+        };
+    }
+    public void SetCurrentBrushToNegativeCoin()
+    {
+        CurrentPaint = new TilePaint
+        {
+            blockType = BlockType.NegativeCoin,
+            sprite = negativeCoin
         };
     }
 }
