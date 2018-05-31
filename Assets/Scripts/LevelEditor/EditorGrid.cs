@@ -19,9 +19,17 @@ public class EditorGrid : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        CentreSelfPosition();
         ClearChildren();
         CreateChildren();
 	}
+
+    private void CentreSelfPosition()
+    {
+        var floatSize = new Vector2(tileMapSize.x, tileMapSize.y);
+        var localCentre = floatSize * transform.localScale / 2f;
+        transform.localPosition = -localCentre;
+    }
 
     private void CreateChildren()
     {
