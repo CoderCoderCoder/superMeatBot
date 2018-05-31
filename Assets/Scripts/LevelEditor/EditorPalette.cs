@@ -12,49 +12,56 @@ public class EditorPalette : MonoBehaviour {
     }
     [SerializeField]
     private Sprite wall;
-    public Sprite Wall
-    {
-        get { return wall; }
-    }
     [SerializeField]
     private Sprite playerStart;
-    public Sprite PlayerStart
-    {
-        get { return playerStart; }
-    }
     [SerializeField]
     private Sprite coin;
-    public Sprite Coin
+
+    public class TilePaint
     {
-        get { return coin; }
+        public BlockType blockType;
+        public Sprite sprite;
     }
-
-    private Sprite currentTileToPaintWith;
-    public Sprite CurrentTileToPaintWith
+    public TilePaint CurrentPaint
     {
-        get { return currentTileToPaintWith; }
+        get;
+        private set;
     }
-
-
+     
 	// Use this for initialization
 	void Start () {
-        currentTileToPaintWith = wall;
+        SetCurrentBrushToAir();
 	}
 	
     public void SetCurrentBrushToAir()
     {
-        currentTileToPaintWith = emptySpace;
+        CurrentPaint = new TilePaint{
+            blockType = BlockType.Air,
+            sprite = emptySpace
+        };
     }
     public void SetCurrentBrushToWall()
     {
-        currentTileToPaintWith = wall;
+        CurrentPaint = new TilePaint
+        {
+            blockType = BlockType.Wall,
+            sprite = wall
+        };
     }
     public void SetCurrentBrushToPlayerStart()
     {
-        currentTileToPaintWith = playerStart;
+        CurrentPaint = new TilePaint
+        {
+            blockType = BlockType.PlayerStart,
+            sprite = playerStart
+        };
     }
     public void SetCurrentBrushToCoin()
     {
-        currentTileToPaintWith = coin;
+        CurrentPaint = new TilePaint
+        {
+            blockType = BlockType.Coin,
+            sprite = coin
+        };
     }
 }

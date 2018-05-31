@@ -6,6 +6,7 @@ public class EditableBlock : MonoBehaviour {
 
     private SpriteRenderer childSpriteRenderer;
     private EditorGrid parentGrid;
+    private BlockType blockType;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,9 @@ public class EditableBlock : MonoBehaviour {
 
     void OnMouseDown()
     {
-        childSpriteRenderer.sprite = parentGrid.EditorPalette.CurrentTileToPaintWith;
+        var paint = parentGrid.EditorPalette.CurrentPaint;
+        childSpriteRenderer.sprite = paint.sprite;
+        blockType = paint.blockType;
     }
 
     internal void Initialize(EditorGrid editorGrid, Sprite initialSprite)
