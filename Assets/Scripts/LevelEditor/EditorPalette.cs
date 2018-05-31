@@ -41,8 +41,20 @@ public class EditorPalette : MonoBehaviour {
         currentTileToPaintWith = wall;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    internal void SetCurrentBrushToAir()
+    {
+        currentTileToPaintWith = emptySpace;
+    }
+    internal void SetCurrentBrushToWall()
+    {
+        currentTileToPaintWith = wall;
+    }
+    internal void SetCurrentBrushToPlayerStart()
+    {
+        currentTileToPaintWith = playerStart;
+    }
+    internal void SetCurrentBrushToCoin()
+    {
+        currentTileToPaintWith = coin;
+    }
 }
