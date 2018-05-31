@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class EditorGrid : MonoBehaviour {
     
@@ -71,5 +73,21 @@ public class EditorGrid : MonoBehaviour {
             Debug.Assert(editableBlock != null);
             editableBlock.ConvertToAirIfCurrentlyPlayerStart();
         }
+    }
+
+    public void SaveToFile()
+    {
+        var levelDefinition = new LevelDefinition();
+        levelDefinition.dimensions = tileMapSize;
+        levelDefinition.blockTypeSerializedGrid = new BlockType[tileMapSize.x * tileMapSize.y];
+        var jsonRepresentation = JsonUtility.ToJson(levelDefinition);
+        var formatter = new BinaryFormatter();
+        var file = OpenMapFileForWriting();
+        formatter.Serialize(file, jsonRepresentation);
+    }
+
+    private FileStream OpenMapFileForWriting()
+    {
+        return File.Create(Application.persistentDataPath + "/level.level");
     }
 }
