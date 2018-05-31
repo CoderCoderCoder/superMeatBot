@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMapSize: {x: 16, y: 16}
+  editableTilePrefab: {fileID: 1977115785730532, guid: 8a92fdad93f6bdf49b3de71089f44527,
+    type: 2}
 --- !u!4 &1918308506
 Transform:
   m_ObjectHideFlags: 0
