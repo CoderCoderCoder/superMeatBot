@@ -49,7 +49,7 @@ public class EditorGrid : MonoBehaviour {
                 Debug.Assert(block != null);
                 block.Initialize(this, EditorPalette.EmptySpace);
 
-                var linearizedIndex = CalculateLinearMappedIndex(x, y);
+                var linearizedIndex = LevelDefinition.CalculateLinearizedCoordinates(x, y, tileMapSize.x);
                 blocks[linearizedIndex] = block;
             }
         }
@@ -96,7 +96,7 @@ public class EditorGrid : MonoBehaviour {
         {
             for (var y = 0; y < tileMapSize.y; ++y)
             {
-                var linearMappedIndex = CalculateLinearMappedIndex(x, y);
+                var linearMappedIndex = levelDefinition.CalculateLinearizedCoordinates(x, y);
                 levelDefinition.blockTypeSerializedGrid[linearMappedIndex] = blocks[linearMappedIndex].blockType;
             }
         }
@@ -105,11 +105,6 @@ public class EditorGrid : MonoBehaviour {
         var formatter = new BinaryFormatter();
         var file = OpenMapFileForWriting();
         formatter.Serialize(file, jsonRepresentation);
-    }
-
-    private int CalculateLinearMappedIndex(int x, int y)
-    {
-        return y * tileMapSize.x + x;
     }
 
     private FileStream OpenMapFileForWriting()
