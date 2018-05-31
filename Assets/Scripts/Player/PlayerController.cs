@@ -42,6 +42,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			TryMoveRight();
 		}
+		else 
+		{
+			
+		}
 	}
 
 	void TryPerformJump()
@@ -68,18 +72,18 @@ public class PlayerController : MonoBehaviour {
 	void TryMoveLeft()
 	{
 		playerPhysicsBody.AddForce(new Vector2(-axisForce, 0f));
-		if(playerPhysicsBody.velocity.x < -jumpSpeed)
+		if(playerPhysicsBody.velocity.x < -axisSpeed)
 		{
-			playerPhysicsBody.velocity = new Vector2(-jumpSpeed, playerPhysicsBody.velocity.y);
+			playerPhysicsBody.velocity = new Vector2(-axisSpeed, playerPhysicsBody.velocity.y);
 		}
 	}
 
 	void TryMoveRight()
 	{
 		playerPhysicsBody.AddForce(new Vector2(axisForce, 0f));
-		if(playerPhysicsBody.velocity.x > jumpSpeed)
+		if(playerPhysicsBody.velocity.x > axisSpeed)
 		{
-			playerPhysicsBody.velocity = new Vector2(jumpSpeed, playerPhysicsBody.velocity.y);
+			playerPhysicsBody.velocity = new Vector2(axisSpeed, playerPhysicsBody.velocity.y);
 		}
 	}
 
