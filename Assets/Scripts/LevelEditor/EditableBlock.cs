@@ -6,7 +6,11 @@ public class EditableBlock : MonoBehaviour {
 
     private SpriteRenderer childSpriteRenderer;
     private EditorGrid parentGrid;
-    private BlockType blockType;
+    internal BlockType blockType
+    {
+        get;
+        private set;
+    }
 
 	// Use this for initialization
 	void Start () {

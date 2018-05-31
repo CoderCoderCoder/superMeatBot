@@ -19,6 +19,8 @@ public class EditorGrid : MonoBehaviour {
         get { return editorPalette; } 
     }
 
+    private EditableBlock[] blocks;
+
 	// Use this for initialization
 	void Start () {
         CentreSelfPosition();
@@ -35,6 +37,8 @@ public class EditorGrid : MonoBehaviour {
 
     private void CreateChildren()
     {
+        blocks = new EditableBlock[tileMapSize.x * tileMapSize.y];
+
         for (var x = 0; x < tileMapSize.x; ++x )
         {
             for (var y = 0; y < tileMapSize.y; ++y )
@@ -44,8 +48,13 @@ public class EditorGrid : MonoBehaviour {
                 var block = newCell.GetComponent<EditableBlock>();
                 Debug.Assert(block != null);
                 block.Initialize(this, EditorPalette.EmptySpace);
+
+                var linearizedIndex = CalculateLinearMappedIndex(x, y);
+                blocks[linearizedIndex] = block;
             }
         }
+
+
     }
 
     private void ClearChildren()
@@ -54,6 +63,8 @@ public class EditorGrid : MonoBehaviour {
         {
             Destroy(transform.GetChild(0).gameObject);
         }
+
+        blocks = null;
     }
 
     internal void PrePaint(BlockType blockType)
@@ -80,10 +91,25 @@ public class EditorGrid : MonoBehaviour {
         var levelDefinition = new LevelDefinition();
         levelDefinition.dimensions = tileMapSize;
         levelDefinition.blockTypeSerializedGrid = new BlockType[tileMapSize.x * tileMapSize.y];
+        
+        for (var x = 0; x < tileMapSize.x; ++x)
+        {
+            for (var y = 0; y < tileMapSize.y; ++y)
+            {
+                var linearMappedIndex = CalculateLinearMappedIndex(x, y);
+                levelDefinition.blockTypeSerializedGrid[linearMappedIndex] = blocks[linearMappedIndex].blockType;
+            }
+        }
+
         var jsonRepresentation = JsonUtility.ToJson(levelDefinition);
         var formatter = new BinaryFormatter();
         var file = OpenMapFileForWriting();
         formatter.Serialize(file, jsonRepresentation);
+    }
+
+    private int CalculateLinearMappedIndex(int x, int y)
+    {
+        return y * tileMapSize.x + x;
     }
 
     private FileStream OpenMapFileForWriting()
