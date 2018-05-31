@@ -20,6 +20,14 @@ public class EditableBlock : MonoBehaviour {
     void OnMouseDown()
     {
         var paint = parentGrid.EditorPalette.CurrentPaint;
+
+        parentGrid.PrePaint(paint.blockType);
+        ApplyTilePaint(paint);
+    }
+
+    private void ApplyTilePaint(EditorPalette.TilePaint paint)
+    {
+
         childSpriteRenderer.sprite = paint.sprite;
         blockType = paint.blockType;
     }
@@ -29,5 +37,13 @@ public class EditableBlock : MonoBehaviour {
         parentGrid = editorGrid;
         childSpriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
         childSpriteRenderer.sprite = initialSprite;
+    }
+
+    internal void ConvertToAirIfCurrentlyPlayerStart()
+    {
+        if (blockType == BlockType.PlayerStart)
+        {
+            ApplyTilePaint(parentGrid.EditorPalette.CreateAirTilePaint());
+        }
     }
 }

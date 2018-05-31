@@ -35,11 +35,18 @@ public class EditorPalette : MonoBehaviour {
 	
     public void SetCurrentBrushToAir()
     {
-        CurrentPaint = new TilePaint{
+        CurrentPaint = CreateAirTilePaint();
+    }
+
+    internal TilePaint CreateAirTilePaint()
+    {
+        return new TilePaint
+        {
             blockType = BlockType.Air,
             sprite = emptySpace
         };
     }
+
     public void SetCurrentBrushToWall()
     {
         CurrentPaint = new TilePaint

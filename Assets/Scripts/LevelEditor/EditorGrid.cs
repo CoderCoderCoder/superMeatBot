@@ -53,9 +53,23 @@ public class EditorGrid : MonoBehaviour {
             Destroy(transform.GetChild(0).gameObject);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    internal void PrePaint(BlockType blockType)
+    {
+        if (blockType == BlockType.PlayerStart)
+        {
+            ConvertAllCurrentPlayerStartsToAir();
+        }
+    }
+
+    private void ConvertAllCurrentPlayerStartsToAir()
+    {
+        for (var childIndex = 0; childIndex < transform.childCount; ++childIndex )
+        {
+            var child = transform.GetChild(childIndex);
+            var editableBlock = child.GetComponent<EditableBlock>();
+            Debug.Assert(editableBlock != null);
+            editableBlock.ConvertToAirIfCurrentlyPlayerStart();
+        }
+    }
 }
