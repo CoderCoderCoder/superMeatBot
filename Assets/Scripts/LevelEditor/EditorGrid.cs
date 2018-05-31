@@ -10,6 +10,13 @@ public class EditorGrid : MonoBehaviour {
     [SerializeField]
     private GameObject editableTilePrefab;
 
+    [SerializeField]
+    private EditorPalette editorPalette;
+    public EditorPalette EditorPalette
+    { 
+        get { return editorPalette; } 
+    }
+
 	// Use this for initialization
 	void Start () {
         ClearChildren();
@@ -22,7 +29,10 @@ public class EditorGrid : MonoBehaviour {
         {
             for (var y = 0; y < tileMapSize.y; ++y )
             {
-                Instantiate(editableTilePrefab, new Vector3(x, y, 0.0f), Quaternion.identity, transform);
+                var newCell = Instantiate(editableTilePrefab, new Vector3(x, y, 0.0f), Quaternion.identity, transform);
+                var block = newCell.GetComponent<EditableBlock>();
+                Debug.Assert(block != null);
+                block.Initialize(this, EditorPalette.EmptySpace);
             }
         }
     }
