@@ -41,19 +41,19 @@ public class EditorPalette : MonoBehaviour {
         currentTileToPaintWith = wall;
 	}
 	
-    internal void SetCurrentBrushToAir()
+    public void SetCurrentBrushToAir()
     {
         currentTileToPaintWith = emptySpace;
     }
-    internal void SetCurrentBrushToWall()
+    public void SetCurrentBrushToWall()
     {
         currentTileToPaintWith = wall;
     }
-    internal void SetCurrentBrushToPlayerStart()
+    public void SetCurrentBrushToPlayerStart()
     {
         currentTileToPaintWith = playerStart;
     }
-    internal void SetCurrentBrushToCoin()
+    public void SetCurrentBrushToCoin()
     {
         currentTileToPaintWith = coin;
     }
