@@ -7,26 +7,34 @@ using UnityEngine.Analytics;
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody2D playerPhysicsBody = null;
+	private Animator playerAnimator = null;
 	private bool hasJumped = false;		// Has the player finished a jump and can he jump again
 	private float jumpTime = 0.05f;
 	private const float jumpSpeed = 5f;
 	private const float jumpForce = 100f;
 	private const float axisForce = 50f;
 	private const float axisSpeed = 5f;
+	public Vector3 startPosition;
+	public ParticleSystem deathParticles;
+	private float deathTimer = 1f;
+	private bool playerDead = false;
 
 	// Use this for initialization
 	void Start () {
 		playerPhysicsBody = this.GetComponent<Rigidbody2D> ();
+		playerAnimator = this.GetComponent<Animator>();
+
+		if(deathParticles)
+		{
+			deathParticles.gameObject.SetActive(true);
+			deathParticles.Stop();
+		}
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		// Jump
-		if (!hasJumped && Input.GetKey(KeyCode.UpArrow))  
-		{
-			TryPerformJump();
-		}
-
+	void Update () 
+	{
+		// If they are jumping and we let go of the up key, stop the jump
 		if((jumpTime > 0f) && Input.GetKeyUp(KeyCode.UpArrow))
 		{
 			// User has let go of the UP button, stop jump attempt
@@ -34,17 +42,48 @@ public class PlayerController : MonoBehaviour {
 			hasJumped = true;
 		}
 
+		if(playerDead)
+		{
+			deathTimer -= Time.deltaTime;
+			if(deathTimer <= 0f)
+			{
+				playerDead = false;
+				deathParticles.Stop();
+				this.GetComponent<SpriteRenderer>().enabled = true;
+				ResetPlayer();
+			}
+		}
+	}
+
+	/*
+	 * We use FixedUpdate for anything that requires use of the rigidbody.
+	 * Gameplay mechanics are in Update
+	 */
+	void FixedUpdate()
+	{
+		// Jump
+		if (!hasJumped && Input.GetKey(KeyCode.UpArrow))  
+		{
+			TryPerformJump();
+		}
+			
+		// Move the actor left and set the movement to use the correct animation
 		if(Input.GetKey(KeyCode.LeftArrow))
 		{
 			TryMoveLeft();
+			playerAnimator.SetFloat("moveSpeed", 1f);
 		}
+		// Else, check the right key and move the character left (this prevents both actions occuring)
 		else if(Input.GetKey(KeyCode.RightArrow))
 		{
 			TryMoveRight();
+			playerAnimator.SetFloat("moveSpeed", 1f);
 		}
+		// Else simulate friction (need a better method)
 		else 
 		{
-			
+			playerPhysicsBody.velocity *= 0.99f;
+			playerAnimator.SetFloat("moveSpeed", 0f);
 		}
 	}
 
@@ -95,5 +134,27 @@ public class PlayerController : MonoBehaviour {
 			jumpTime = 0.05f;
 			Debug.Log ("Jump Reset. Can jump again.");
 		}
+		else if(collision.gameObject.tag == "Danger")
+		{
+			KillPlayer(true);
+		}
+	}
+
+	void KillPlayer(bool reset)
+	{
+		playerDead = reset;
+		deathTimer = 1f;
+		if(deathParticles)
+		{
+			deathParticles.transform.position = this.transform.position;
+			deathParticles.Play();
+		}
+		this.GetComponent<SpriteRenderer>().enabled = false;
+	}
+
+	void ResetPlayer()
+	{
+		this.transform.position = startPosition;
+		this.playerPhysicsBody.velocity = Vector2.zero;
 	}
 }
