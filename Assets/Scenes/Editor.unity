@@ -225,7 +225,7 @@ MonoBehaviour:
   tileMapSize: {x: 16, y: 16}
   editableTilePrefab: {fileID: 1776125209056920, guid: 92707db74573e094995fae40cf74841d,
     type: 2}
-  editorPalette: {fileID: 0}
+  editorPalette: {fileID: 1918308507}
 --- !u!4 &1918308506
 Transform:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 1918308504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

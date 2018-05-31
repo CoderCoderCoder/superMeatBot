@@ -29,7 +29,8 @@ public class EditorGrid : MonoBehaviour {
         {
             for (var y = 0; y < tileMapSize.y; ++y )
             {
-                var newCell = Instantiate(editableTilePrefab, new Vector3(x, y, 0.0f), Quaternion.identity, transform);
+                var newCell = Instantiate(editableTilePrefab, Vector3.zero, Quaternion.identity, transform);
+                newCell.transform.localPosition = new Vector3(x, y, 0f);
                 var block = newCell.GetComponent<EditableBlock>();
                 Debug.Assert(block != null);
                 block.Initialize(this, EditorPalette.EmptySpace);
