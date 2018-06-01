@@ -73,6 +73,7 @@ public class LevelLoader : MonoBehaviour {
     {
         var newPlayer = Instantiate(PlayerPrefab, transform);
         newPlayer.transform.localPosition = new Vector3(x, y, 0f);
+		newPlayer.GetComponent<PlayerController>().startPosition = newPlayer.transform.position;
 
         Debug.Log("Creating player at " + x + ", " + y);
     }

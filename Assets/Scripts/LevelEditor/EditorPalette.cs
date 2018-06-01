@@ -18,6 +18,8 @@ public class EditorPalette : MonoBehaviour {
     private Sprite coin;
     [SerializeField]
     private Sprite negativeCoin;
+	[SerializeField]
+	private Sprite trap;
 
     public class TilePaint
     {
@@ -81,4 +83,12 @@ public class EditorPalette : MonoBehaviour {
             sprite = negativeCoin
         };
     }
+	public void SetCurrentBrushToTrap()
+	{
+		CurrentPaint = new TilePaint
+		{
+			blockType = BlockType.Trap,
+			sprite = trap
+		};
+	}
 }
