@@ -46,6 +46,9 @@ public class LevelLoader : MonoBehaviour {
                     case BlockType.Wall:
                         CreateWall(x, y);
                         break;
+					case BlockType.Trap:
+						CreateTrap(x, y);
+						break;
                     case BlockType.PlayerStart:
                         CreatePlayer(x, y);
                         break;
