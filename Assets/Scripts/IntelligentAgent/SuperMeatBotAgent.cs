@@ -15,7 +15,7 @@ public class SuperMeatBotAgent : Agent
 		collector = gameObject.GetComponent<CoinCollector>();
 
 		var obj = GameObject.Find("ActionText");
-		obj.GetComponent<Text>().text = "Action: " + action.ToString();
+		obj.GetComponent<Text>().text = "Action: Not set yet";
 		Debug.Log("Agent Created");
 
 		this.GiveBrain(GameObject.Find("Ball3DBrain").GetComponent<Brain>());
@@ -33,7 +33,7 @@ public class SuperMeatBotAgent : Agent
 		action = Mathf.FloorToInt(vectorAction[0]);
 
 		var obj = GameObject.Find("ActionText");
-		obj.GetComponent<GUIText>().text = "Action: " + action.ToString();
+		obj.GetComponent<Text>().text = "Action: " + action.ToString() + "    Y: " + gameObject.transform.localPosition.y;
 
 		switch(action)
 		{
