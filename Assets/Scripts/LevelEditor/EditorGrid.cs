@@ -25,7 +25,7 @@ public class EditorGrid : MonoBehaviour {
     private EditableBlock[] blocks;
 
     [SerializeField]
-    private SceneAsset levelLoaderScene;
+    private ScenePicker levelLoaderScene;
 
     [SerializeField]
     private WarningText levelWarning;

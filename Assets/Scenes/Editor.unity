@@ -2813,6 +2813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1918308506}
   - component: {fileID: 1918308505}
+  - component: {fileID: 1918308507}
   m_Layer: 0
   m_Name: Editor Space
   m_TagString: Untagged
@@ -2835,7 +2836,7 @@ MonoBehaviour:
   editableTilePrefab: {fileID: 1776125209056920, guid: 92707db74573e094995fae40cf74841d,
     type: 2}
   editorPalette: {fileID: 924993777}
-  levelLoaderScene: {fileID: 102900000, guid: 7d176ad4dcf72fa4daa66dbb2fbceabe, type: 3}
+  levelLoaderScene: {fileID: 1918308507}
   levelWarning: {fileID: 1181086450}
 --- !u!4 &1918308506
 Transform:
@@ -2850,6 +2851,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918308507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1918308504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2092c1c3d2ebea34eae159f014a0e3ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenePath: Assets/Scenes/Learning Scene.unity
 --- !u!1 &2056900733
 GameObject:
   m_ObjectHideFlags: 0
