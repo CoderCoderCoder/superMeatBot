@@ -12,15 +12,15 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D playerPhysicsBody = null;
     private Animator playerAnimator = null;
-    private bool hasJumped = false;     // Has the player finished a jump and can he jump again
-    private float jumpTime = 0.2f;
+    public bool hasJumped = false;     // Has the player finished a jump and can he jump again
+    public float jumpTime = 0.2f;
     private const float jumpSpeed = 7f;
     private const float jumpForce = 200f;
     private const float axisForce = 30f;
     private const float axisSpeed = 4f;
     public Vector3 startPosition;
     private float deathTimer = 1f;
-    private bool playerDead = false;
+    public bool playerDead = false;
 
     private CoinCollector coinCollector;
 
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void TryPerformJump()
+    public void TryPerformJump()
     {
         // Timer for how long we can jump
         if (jumpTime > 0f)
@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void TryMoveLeft()
+    public void TryMoveLeft()
     {
         playerPhysicsBody.AddForce(new Vector2(-axisForce, 0f));
         if (playerPhysicsBody.velocity.x < -axisSpeed)
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void TryMoveRight()
+    public void TryMoveRight()
     {
         playerPhysicsBody.AddForce(new Vector2(axisForce, 0f));
         if (playerPhysicsBody.velocity.x > axisSpeed)
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void KillPlayer(bool reset)
+    public void KillPlayer(bool reset)
     {
         playerDead = reset;
         deathTimer = 1f;
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
         this.GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    void ResetPlayer()
+    public void ResetPlayer()
     {
         this.transform.position = startPosition;
         this.playerPhysicsBody.velocity = Vector2.zero;
