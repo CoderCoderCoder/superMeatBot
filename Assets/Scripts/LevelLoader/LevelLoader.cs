@@ -21,6 +21,11 @@ public class LevelLoader : MonoBehaviour {
 	[SerializeField]
 	private GameObject OutOfBoundsPrefab;
 
+    private LevelDefinition levelDefinition;
+
+    [SerializeField]
+    private int levelNr;
+
 	// Use this for initialization
 	void Start () {
         LoadLevel();
@@ -28,13 +33,17 @@ public class LevelLoader : MonoBehaviour {
 
     private void LoadLevel()
     {
-        var levelFilepathToLoad = GenerateLevelFilepathToLoad();
+        var levelFilepathToLoad = GenerateLevelFilepathToLoad(levelNr);
         LoadLevelFromFile(levelFilepathToLoad);
     }
 
     private void LoadLevelFromFile(string levelFilepathToLoad)
     {
-        var levelData = DeserializeFromLevelFile(levelFilepathToLoad);
+        levelDefinition = DeserializeFromLevelFile(levelFilepathToLoad);
+        if (levelDefinition == null)
+            return;
+        var levelData = levelDefinition;
+
         for (var x = 0; x < levelData.dimensions.x; ++x)
         {
             for (var y = 0; y < levelData.dimensions.y; ++y)
@@ -60,7 +69,6 @@ public class LevelLoader : MonoBehaviour {
                 }
             }
         }
-		CreateOutOfBounds();
     }
 
     private void CreateCoin(int x, int y)
@@ -73,7 +81,10 @@ public class LevelLoader : MonoBehaviour {
     {
         var newPlayer = Instantiate(PlayerPrefab, transform);
         newPlayer.transform.localPosition = new Vector3(x, y, 0f);
-		newPlayer.GetComponent<PlayerController>().startPosition = newPlayer.transform.position;
+        PlayerController playerController = newPlayer.GetComponent<PlayerController>();
+
+        playerController.startPosition = newPlayer.transform.position;
+        playerController.SetLevel(levelDefinition, transform.position);
 
         Debug.Log("Creating player at " + x + ", " + y);
     }
@@ -90,23 +101,22 @@ public class LevelLoader : MonoBehaviour {
 		newTrap.transform.localPosition = new Vector3(x, y, 0f);
 	}
 
-	private void CreateOutOfBounds()
-	{
-		Instantiate(OutOfBoundsPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
-	}
-
     private LevelDefinition DeserializeFromLevelFile(string levelFilepathToLoad)
     {
         var formatter = new BinaryFormatter();
-        var file = File.Open(Application.persistentDataPath + "/level.level", FileMode.Open, FileAccess.Read);
+        if(!File.Exists(levelFilepathToLoad))
+        {
+            return null;
+        }
+        var file = File.Open(levelFilepathToLoad, FileMode.Open, FileAccess.Read);
         var jsonRepresentation = (string)formatter.Deserialize(file);
         file.Close();
         return JsonUtility.FromJson<LevelDefinition>(jsonRepresentation);
     }
 
-    private string GenerateLevelFilepathToLoad()
+    private string GenerateLevelFilepathToLoad(int levelNr)
     {
-        return Application.persistentDataPath + "/level.level";
+        return Application.persistentDataPath + "/level"+ levelNr+".level";
     }
 	
 }

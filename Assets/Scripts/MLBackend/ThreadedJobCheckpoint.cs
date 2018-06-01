@@ -59,7 +59,9 @@ public class ThreadedJobCheckpoint
 
         Process = Process.Start(ProcessInfo);
 
+
         Process.WaitForExit();
+
 
         ExitCode = Process.ExitCode;
         Process.Close();
@@ -67,7 +69,9 @@ public class ThreadedJobCheckpoint
         UnityEngine.Debug.Log("ExitCode: " + ExitCode.ToString());
 
         if (resetRunningCheckpointThreadOnEnd)
+        {
             LoadExternal.NotifyCheckpointModelCreated();
+        }
     }
 
     protected virtual void OnFinished() { }

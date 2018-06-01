@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SuperMeatBotAgent : Agent
 {
 	PlayerController player;
 	CoinCollector collector;
+	int action = 0;
 
     public override void InitializeAgent()
     {
 		player = gameObject.GetComponent<PlayerController>();
 		collector = gameObject.GetComponent<CoinCollector>();
+
+		var obj = GameObject.Find("ActionText");
+		obj.GetComponent<Text>().text = "Action: " + action.ToString();
+		Debug.Log("Agent Created");
+
+		this.GiveBrain(GameObject.Find("Ball3DBrain").GetComponent<Brain>());
     }
 
     public override void CollectObservations()
@@ -22,7 +30,10 @@ public class SuperMeatBotAgent : Agent
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-		int action = Mathf.FloorToInt(vectorAction[0]);
+		action = Mathf.FloorToInt(vectorAction[0]);
+
+		var obj = GameObject.Find("ActionText");
+		obj.GetComponent<GUIText>().text = "Action: " + action.ToString();
 
 		switch(action)
 		{
@@ -62,5 +73,4 @@ public class SuperMeatBotAgent : Agent
     {
 		player.KillPlayer(true);
     }
-
 }

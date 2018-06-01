@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollector : MonoBehaviour {
 
+
+    private List<GameObject> coinsCollected = new List<GameObject>();
     internal int ConsumeCollectedCoins()
     {
         var coinsConsumed = coins;
@@ -25,9 +28,20 @@ public class CoinCollector : MonoBehaviour {
     {
         Debug.Log("Collected coin");
         coins++;
-        
-        Destroy(other.gameObject);
+
+        other.gameObject.SetActive(false);
+        coinsCollected.Add(other.gameObject);
     }
+    
 
     private int coins = 0;
+
+    internal void Reset()
+    {
+        for (int i = coinsCollected.Count - 1; i >= 0; i--)
+        {
+            coinsCollected[i].SetActive(true);
+            coinsCollected.RemoveAt(i);
+        }
+    }
 }

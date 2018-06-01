@@ -108,12 +108,9 @@ public class ThreadedJob
         ProcessInfo.UseShellExecute = false;
 
         Process = Process.Start(ProcessInfo);
-        long startTicks = System.DateTime.Now.Ticks;
+
         Process.WaitForExit();
-        System.DateTime startTime = System.DateTime.Now;
-        long waitingTicks = System.DateTime.Now.Ticks - startTicks;
-        LoadExternal.lastWaitedTicks = waitingTicks;
-        UnityEngine.Debug.Log("Waited Ticks: " + waitingTicks);
+
         ExitCode = Process.ExitCode;
         Process.Close();
 

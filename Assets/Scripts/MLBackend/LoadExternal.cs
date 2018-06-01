@@ -19,7 +19,7 @@ public class LoadExternal : MonoBehaviour
     public int maxIteration;
     private static int toLoad;
     public static int maxIterations = 50;
-    internal static long lastWaitedTicks;
+    internal static long iterationStartTick;
     public static readonly string path = "C:\\UnityML\\python_allInOne\\models\\123\\";
 
 
@@ -42,6 +42,11 @@ public class LoadExternal : MonoBehaviour
     {
         if (toLoad != maxIteration)
         {
+            System.DateTime startTime = System.DateTime.Now;
+            long waitingTicks = System.DateTime.Now.Ticks - iterationStartTick;
+            iterationStartTick = System.DateTime.Now.Ticks;
+            UnityEngine.Debug.Log("Waited Ticks: " + waitingTicks);
+            PlayerPrefs.SetString("lastIterationTime", waitingTicks + "");
             StartCoroutine(LoadModelInternal(toLoad));
         }
 
@@ -61,6 +66,8 @@ public class LoadExternal : MonoBehaviour
 
     public void CallLearner()
     {
+        LoadingBar.instance.StartLoading();
+        long startTicks = System.DateTime.Now.Ticks;
         LoadingBar.instance.StartLoading();
         maxIteration = 0;
         toLoad = 0;
@@ -105,7 +112,7 @@ public class LoadExternal : MonoBehaviour
         DirectoryInfo di = new DirectoryInfo(path1);
         foreach (FileInfo file in di.GetFiles())
         {
-            if (file.Name.StartsWith("model-" + iteration + "000.cptk"))
+            if (file.Name.StartsWith("model-" + iteration + "000.cptk") && !file.Name.Contains(".cptk.meta.tmp"))
                 System.IO.File.Copy(file.FullName, path2 + file.Name, true);
         }
 
@@ -189,7 +196,6 @@ public class LoadExternal : MonoBehaviour
 
     public IEnumerator LoadModelInternal(int iteration)
     {
-        PlayerPrefs.SetString("lastIterationTime", lastWaitedTicks + "");
         LoadingBar.instance.StartLoading();
         maxIteration = iteration;
         string path_byte = path2 + "testGame_123.bytes";
