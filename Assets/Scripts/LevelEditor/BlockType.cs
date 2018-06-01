@@ -5,6 +5,7 @@ using UnityEngine;
 public enum BlockType {
     Air,
     Wall,
+	Trap,
     PlayerStart,
     Coin,
     NegativeCoin,

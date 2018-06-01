@@ -9,11 +9,11 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D playerPhysicsBody = null;
 	private Animator playerAnimator = null;
 	private bool hasJumped = false;		// Has the player finished a jump and can he jump again
-	private float jumpTime = 0.05f;
-	private const float jumpSpeed = 5f;
-	private const float jumpForce = 100f;
-	private const float axisForce = 50f;
-	private const float axisSpeed = 5f;
+	private float jumpTime = 0.2f;
+	private const float jumpSpeed = 7f;
+	private const float jumpForce = 200f;
+	private const float axisForce = 30f;
+	private const float axisSpeed = 4f;
 	public Vector3 startPosition;
 	private ParticleSystem deathParticles;
 	private float deathTimer = 1f;
@@ -96,11 +96,7 @@ public class PlayerController : MonoBehaviour {
 		if(jumpTime > 0f)
 		{
 			// Add force, clamp max velocity, reduce time allowed for jump
-			playerPhysicsBody.AddForce(new Vector2 (0f, jumpForce));
-			if(playerPhysicsBody.velocity.y > jumpSpeed)
-			{
-				playerPhysicsBody.velocity = new Vector2(playerPhysicsBody.velocity.x, jumpSpeed);
-			}
+			playerPhysicsBody.velocity = new Vector2(playerPhysicsBody.velocity.x, jumpSpeed);
 			jumpTime -= Time.deltaTime;
 		}
 		else
@@ -134,7 +130,7 @@ public class PlayerController : MonoBehaviour {
 		if (hasJumped && collision.gameObject.tag == "FloorTile") 
 		{
 			hasJumped = false;
-			jumpTime = 0.05f;
+			jumpTime = 0.2f;
 			Debug.Log ("Jump Reset. Can jump again.");
 		}
 		else if(collision.gameObject.tag == "Danger")
