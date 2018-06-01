@@ -9,6 +9,9 @@ public class LevelLoader : MonoBehaviour {
     [SerializeField]
     private GameObject WallPrefab;
 
+	[SerializeField]
+	private GameObject TrapPrefab;
+
     [SerializeField]
     private GameObject PlayerPrefab;
 
@@ -78,6 +81,12 @@ public class LevelLoader : MonoBehaviour {
         var newWall = Instantiate(WallPrefab, transform);
         newWall.transform.localPosition = new Vector3(x, y, 0f);
     }
+
+	private void CreateTrap(int x, int y)
+	{
+		var newTrap = Instantiate(TrapPrefab, transform);
+		newTrap.transform.localPosition = new Vector3(x, y, 0f);
+	}
 
     private LevelDefinition DeserializeFromLevelFile(string levelFilepathToLoad)
     {
