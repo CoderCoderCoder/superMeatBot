@@ -84,7 +84,6 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
 
     /// Reference to the brain that uses this CoreBrainInternal
     public Brain brain;
-    public bool testFlag;
 
     /// Create the reference to the brain
     public void SetBrain(Brain b)
@@ -118,11 +117,11 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
         }
 
         //if (graphModel != null)
-        if (testFlag || LoadExternal.instance.maxIteration > 0)
+        if (graphModel != null || LoadExternal.instance.maxIteration > 0)
         {
 
             graph = new TFGraph();
-            if(testFlag)
+            if(graphModel != null)
                 graph.Import(graphModel.bytes);
             else
                 graph.Import(LoadExternal.instance.iterationData[LoadExternal.instance.maxIteration-1]);
