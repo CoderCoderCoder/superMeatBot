@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -25,6 +26,9 @@ public class EditorGrid : MonoBehaviour {
 
     [SerializeField]
     private SceneAsset levelLoaderScene;
+
+    [SerializeField]
+    private WarningText levelWarning;
 
 	// Use this for initialization
 	void Start () {
@@ -93,6 +97,11 @@ public class EditorGrid : MonoBehaviour {
 
     public void SaveToFile()
     {
+        if (!VerifyLevel())
+        {
+            return;
+        }
+
         var levelDefinition = new LevelDefinition();
         levelDefinition.dimensions = tileMapSize;
         levelDefinition.blockTypeSerializedGrid = new BlockType[tileMapSize.x * tileMapSize.y];
@@ -111,6 +120,23 @@ public class EditorGrid : MonoBehaviour {
         var file = OpenMapFileForWriting();
         formatter.Serialize(file, jsonRepresentation);
         file.Close();
+    }
+
+    private bool VerifyLevel()
+    {
+        if (!blocks.Any(block => block.blockType == BlockType.PlayerStart))
+        {
+            levelWarning.EmitWarning("No player found in level! The agent can't play this level, so not exporting");
+            return false;
+        }
+
+        if (!blocks.Any(block => block.blockType == BlockType.Coin))
+        {
+            levelWarning.EmitWarning("No coin found in level! The agent won't learn anything from this level, so not exporting");
+            return false;
+        }
+
+        return true;
     }
 
     private FileStream OpenMapFileForWriting()
