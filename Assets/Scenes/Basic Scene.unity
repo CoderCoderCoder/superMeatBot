@@ -556,31 +556,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &529184998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 2116580985}
-  testFlag: 0
---- !u!114 &681751871
+--- !u!114 &672794205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -738,35 +714,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &945503760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions: []
-  discretePlayerActions: []
-  defaultAction: 0
-  brain: {fileID: 0}
---- !u!114 &974208955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1 &1171081149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1014,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1255651871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions: []
+  discretePlayerActions: []
+  defaultAction: 0
+  brain: {fileID: 0}
 --- !u!1001 &1282441534
 Prefab:
   m_ObjectHideFlags: 0
@@ -1115,6 +1078,29 @@ Transform:
   m_PrefabParentObject: {fileID: 4813819443802972, guid: 8a92fdad93f6bdf49b3de71089f44527,
     type: 2}
   m_PrefabInternal: {fileID: 1282441534}
+--- !u!114 &1296954132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 2116580985}
 --- !u!1 &1319025726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1187,19 @@ Transform:
   m_PrefabParentObject: {fileID: 4605306106732674, guid: ac59d2afeac08fe42b03cd60c25171fc,
     type: 2}
   m_PrefabInternal: {fileID: 703812802}
+--- !u!114 &1585272573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!4 &1634983642 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4969219639759248, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
@@ -1297,6 +1296,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: brainParameters.vectorActionDescriptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4308572716629380, guid: ba45e3a0b6b5af14e9160e7d8bdc7296, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.14363548
@@ -1329,6 +1333,46 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: brainParameters.vectorActionSpaceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: CoreBrains.Array.data[0]
+      value: 
+      objectReference: {fileID: 1255651871}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: CoreBrains.Array.data[1]
+      value: 
+      objectReference: {fileID: 1585272573}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: CoreBrains.Array.data[2]
+      value: 
+      objectReference: {fileID: 672794205}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: CoreBrains.Array.data[3]
+      value: 
+      objectReference: {fileID: 1296954132}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: instanceID
+      value: 24612
+      objectReference: {fileID: 0}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: brainParameters.vectorObservationSpaceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114330430976577428, guid: ba45e3a0b6b5af14e9160e7d8bdc7296,
+        type: 2}
+      propertyPath: brainParameters.vectorActionSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114845051872391760, guid: ba45e3a0b6b5af14e9160e7d8bdc7296, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba45e3a0b6b5af14e9160e7d8bdc7296, type: 2}
@@ -1355,7 +1399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7df03770a2fb6b42bdf08d1c1924a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2
 --- !u!4 &2122303326 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4074779511056822, guid: 39c29f52d91d0134eb787e56da55ce32,

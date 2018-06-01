@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
 	private const float axisSpeed = 4f;
 	public Vector3 startPosition;
 	private float deathTimer = 1f;
-	private bool playerDead = false;
+	public bool playerDead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void TryPerformJump()
+	public void TryPerformJump()
 	{
 		// Timer for how long we can jump
 		if(jumpTime > 0f)
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void TryMoveLeft()
+	public void TryMoveLeft()
 	{
 		playerPhysicsBody.AddForce(new Vector2(-axisForce, 0f));
 		if(playerPhysicsBody.velocity.x < -axisSpeed)
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void TryMoveRight()
+	public void TryMoveRight()
 	{
 		playerPhysicsBody.AddForce(new Vector2(axisForce, 0f));
 		if(playerPhysicsBody.velocity.x > axisSpeed)

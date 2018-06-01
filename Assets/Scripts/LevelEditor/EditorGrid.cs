@@ -146,6 +146,6 @@ public class EditorGrid : MonoBehaviour {
 
     public void MoveToGameScene()
     {
-        SceneManager.LoadScene(levelLoaderScene.name);
+        SceneManager.LoadScene(levelLoaderScene.scenePath);
     }
 }
