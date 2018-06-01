@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void KillPlayer(bool reset)
+	public void KillPlayer(bool reset)
 	{
 		playerDead = reset;
 		deathTimer = 1f;
