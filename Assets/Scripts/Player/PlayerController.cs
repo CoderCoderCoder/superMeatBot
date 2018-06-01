@@ -139,6 +139,14 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.gameObject.tag == "Danger")
+		{
+			KillPlayer(true);
+		}
+	}
+
 	void KillPlayer(bool reset)
 	{
 		playerDead = reset;
