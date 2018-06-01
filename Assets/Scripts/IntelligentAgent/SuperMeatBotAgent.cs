@@ -36,13 +36,17 @@ public class SuperMeatBotAgent : Agent
             }
         }
         AddVectorObs(observation);
-        
         //SetTextObs("Testing " + gameObject.GetInstanceID());
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
 		action = Mathf.FloorToInt(vectorAction[0]);
+
+		if(action < 0)
+		{
+			action = -action;
+		}
 
 		var obj = GameObject.Find("ActionText");
 		obj.GetComponent<Text>().text = "Action: " + action.ToString() + "    Y: " + gameObject.transform.localPosition.y;
@@ -54,17 +58,17 @@ public class SuperMeatBotAgent : Agent
 				break;
 			case 1:
 				player.TryPerformJump();
-				player.TryMoveLeft();
+				player.TryMoveRight();
 				break;
 			case 2:
-				player.TryPerformJump();
 				player.TryMoveRight();
 				break;
 			case 3:
 				player.TryMoveLeft();
 				break;
 			case 4:
-				player.TryMoveRight();
+				player.TryPerformJump();
+				player.TryMoveLeft();
 				break;
 			case 5:
 			default:
@@ -74,7 +78,7 @@ public class SuperMeatBotAgent : Agent
 			
 		SetReward(collector.ConsumeCollectedCoins());
 
-		if(player.playerDead)
+		if(player.playerDied)
 		{
 			Done();
 			SetReward(-1f);
@@ -83,6 +87,6 @@ public class SuperMeatBotAgent : Agent
 
     public override void AgentReset()
     {
-		player.KillPlayer(true);
+		player.playerDied = false;
     }
 }
