@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 95102137740180826}
   - component: {fileID: 70842834254935890}
   - component: {fileID: 114559436802097810}
+  - component: {fileID: 114451837201283116}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -124,6 +125,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114451837201283116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182027226839458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f89665f7eb913548991ce35a4a5d37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
 --- !u!114 &114559436802097810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 1689038619170946, guid: 39c29f52d91d0134eb787e56da55ce32,
     type: 2}
-  playerFriction: 0.05
+  hasJumped: 0
+  jumpTime: 0.2
   startPosition: {x: -0.02981842, y: 1.25, z: 0}
   playerDead: 0
 --- !u!212 &212453867197354950
