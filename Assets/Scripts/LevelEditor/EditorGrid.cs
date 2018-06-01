@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class EditorGrid : MonoBehaviour {
     
@@ -20,6 +22,9 @@ public class EditorGrid : MonoBehaviour {
     }
 
     private EditableBlock[] blocks;
+
+    [SerializeField]
+    private SceneAsset levelLoaderScene;
 
 	// Use this for initialization
 	void Start () {
@@ -105,10 +110,16 @@ public class EditorGrid : MonoBehaviour {
         var formatter = new BinaryFormatter();
         var file = OpenMapFileForWriting();
         formatter.Serialize(file, jsonRepresentation);
+        file.Close();
     }
 
     private FileStream OpenMapFileForWriting()
     {
         return File.Create(Application.persistentDataPath + "/level.level");
+    }
+
+    public void MoveToGameScene()
+    {
+        SceneManager.LoadScene(levelLoaderScene.name);
     }
 }

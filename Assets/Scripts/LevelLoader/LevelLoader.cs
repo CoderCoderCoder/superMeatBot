@@ -100,6 +100,7 @@ public class LevelLoader : MonoBehaviour {
         var formatter = new BinaryFormatter();
         var file = File.Open(Application.persistentDataPath + "/level.level", FileMode.Open, FileAccess.Read);
         var jsonRepresentation = (string)formatter.Deserialize(file);
+        file.Close();
         return JsonUtility.FromJson<LevelDefinition>(jsonRepresentation);
     }
 
