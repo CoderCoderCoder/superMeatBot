@@ -12,6 +12,9 @@ public class LevelLoader : MonoBehaviour {
     [SerializeField]
     private GameObject PlayerPrefab;
 
+    [SerializeField]
+    private GameObject CoinPrefab;
+
 	[SerializeField]
 	private GameObject ParticlesPrefab;
 
@@ -43,11 +46,20 @@ public class LevelLoader : MonoBehaviour {
                     case BlockType.PlayerStart:
                         CreatePlayer(x, y);
                         break;
+                    case BlockType.Coin:
+                        CreateCoin(x, y);
+                        break;
                     default:
                         break;
                 }
             }
         }
+    }
+
+    private void CreateCoin(int x, int y)
+    {
+        var newCoin = Instantiate(CoinPrefab, transform);
+        newCoin.transform.localPosition = new Vector3(x, y, 0f);
     }
 
     private void CreatePlayer(int x, int y)

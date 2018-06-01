@@ -156,6 +156,7 @@ MonoBehaviour:
   WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
   PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
     type: 2}
+  CoinPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
   ParticlesPrefab: {fileID: 1689038619170946, guid: 39c29f52d91d0134eb787e56da55ce32,
     type: 2}
 --- !u!1 &1076711817
