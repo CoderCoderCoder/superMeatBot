@@ -12,6 +12,9 @@ public class LevelLoader : MonoBehaviour {
     [SerializeField]
     private GameObject PlayerPrefab;
 
+	[SerializeField]
+	private GameObject ParticlesPrefab;
+
 	// Use this for initialization
 	void Start () {
         LoadLevel();
@@ -51,6 +54,10 @@ public class LevelLoader : MonoBehaviour {
     {
         var newPlayer = Instantiate(PlayerPrefab, transform);
         newPlayer.transform.localPosition = new Vector3(x, y, 0f);
+
+		var newParticles = Instantiate(ParticlesPrefab, transform);
+		newParticles.transform.localPosition = new Vector3(x, y, 0f);
+
         Debug.Log("Creating player at " + x + ", " + y);
     }
 

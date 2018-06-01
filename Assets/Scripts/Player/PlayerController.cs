@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	private const float axisForce = 50f;
 	private const float axisSpeed = 5f;
 	public Vector3 startPosition;
-	public ParticleSystem deathParticles;
+	private ParticleSystem deathParticles;
 	private float deathTimer = 1f;
 	private bool playerDead = false;
 
@@ -24,8 +24,10 @@ public class PlayerController : MonoBehaviour {
 		playerPhysicsBody = this.GetComponent<Rigidbody2D> ();
 		playerAnimator = this.GetComponent<Animator>();
 
-		if(deathParticles)
+		GameObject obj = GameObject.Find("DeathParticles");
+		if(obj)
 		{
+			deathParticles = obj.GetComponent<ParticleSystem>();
 			deathParticles.gameObject.SetActive(true);
 			deathParticles.Stop();
 		}
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 			// User has let go of the UP button, stop jump attempt
 			Debug.Log("Jump Attempt Finished");
 			hasJumped = true;
+			jumpTime = 0f;
 		}
 
 		if(playerDead)
