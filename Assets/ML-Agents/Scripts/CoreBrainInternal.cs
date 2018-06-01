@@ -117,13 +117,14 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
         }
 
         //if (graphModel != null)
-        if (LoadExternal.instance.maxIteration > 0)
+        if (graphModel != null || LoadExternal.instance.maxIteration > 0)
         {
 
             graph = new TFGraph();
-
-            //graph.Import(graphModel.bytes);
-            graph.Import(LoadExternal.instance.iterationData[LoadExternal.instance.maxIteration-1]);
+            if(graphModel != null)
+                graph.Import(graphModel.bytes);
+            else
+                graph.Import(LoadExternal.instance.iterationData[LoadExternal.instance.maxIteration-1]);
 
             session = new TFSession(graph);
 
