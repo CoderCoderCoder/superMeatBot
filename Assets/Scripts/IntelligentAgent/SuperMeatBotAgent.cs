@@ -23,16 +23,19 @@ public class SuperMeatBotAgent : Agent
 
     public override void CollectObservations()
     {
-
+        int observation = 0;
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
             {
                 if (x != 1 || y != 1)
-                    AddVectorObs((int)player.GetBlockType(x, y));
+                {
+                    observation = observation << 3;
+                    observation += (int)player.GetBlockType(x, y);
+                }
             }
         }
-        AddVectorObs(gameObject.transform.localPosition.x);
+        AddVectorObs(observation);
         
         //SetTextObs("Testing " + gameObject.GetInstanceID());
     }
