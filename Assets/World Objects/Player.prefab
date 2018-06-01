@@ -134,8 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136efa5a7a4fc9b40972f520c45d095f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticles: {fileID: 1689038619170946, guid: 39c29f52d91d0134eb787e56da55ce32,
+    type: 2}
   startPosition: {x: -0.02981842, y: 1.25, z: 0}
-  deathParticles: {fileID: 0}
 --- !u!212 &212453867197354950
 SpriteRenderer:
   m_ObjectHideFlags: 1

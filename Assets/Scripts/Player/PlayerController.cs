@@ -6,6 +6,9 @@ using UnityEngine.Analytics;
 
 public class PlayerController : MonoBehaviour {
 
+	[SerializeField]
+	private GameObject deathParticles;
+
 	private Rigidbody2D playerPhysicsBody = null;
 	private Animator playerAnimator = null;
 	private bool hasJumped = false;		// Has the player finished a jump and can he jump again
@@ -15,7 +18,6 @@ public class PlayerController : MonoBehaviour {
 	private const float axisForce = 30f;
 	private const float axisSpeed = 4f;
 	public Vector3 startPosition;
-	private ParticleSystem deathParticles;
 	private float deathTimer = 1f;
 	private bool playerDead = false;
 
@@ -23,14 +25,6 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		playerPhysicsBody = this.GetComponent<Rigidbody2D> ();
 		playerAnimator = this.GetComponent<Animator>();
-
-		GameObject obj = GameObject.Find("DeathParticles");
-		if(obj)
-		{
-			deathParticles = obj.GetComponent<ParticleSystem>();
-			deathParticles.gameObject.SetActive(true);
-			deathParticles.Stop();
-		}
 	}
 	
 	// Update is called once per frame
@@ -51,7 +45,6 @@ public class PlayerController : MonoBehaviour {
 			if(deathTimer <= 0f)
 			{
 				playerDead = false;
-				deathParticles.Stop();
 				this.GetComponent<SpriteRenderer>().enabled = true;
 				ResetPlayer();
 			}
@@ -139,22 +132,15 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if(other.gameObject.tag == "Danger")
-		{
-			KillPlayer(true);
-		}
-	}
-
 	void KillPlayer(bool reset)
 	{
 		playerDead = reset;
 		deathTimer = 1f;
 		if(deathParticles)
 		{
-			deathParticles.transform.position = this.transform.position;
-			deathParticles.Play();
+			var deadEffect = Instantiate(deathParticles, transform.parent);
+			deadEffect.transform.localPosition = this.transform.localPosition;
+			Destroy(deadEffect, 5f);
 		}
 		this.GetComponent<SpriteRenderer>().enabled = false;
 	}
