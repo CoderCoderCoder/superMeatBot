@@ -1,0 +1,11 @@
+Backend-Instruction:
+
+
+
+Git Clone https://github.com/Unity-Technologies/ml-agents into 'C:\UnityML'
+
+extract Backend.zip into C:\UnityML
+
+copy python folder (you need to have two of them: 'C:\UnityML\python' and 'C:\UnityML\python2'
+
+extract Backend2.zip into C:\UnityML

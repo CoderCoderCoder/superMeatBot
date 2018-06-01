@@ -20,11 +20,11 @@ public class LoadExternal : MonoBehaviour
     private static int toLoad;
     public static int maxIterations = 50;
     internal static long lastWaitedTicks;
-    public static readonly string path = "C:\\Programmieren\\UnityML\\python_allInOne\\models\\123\\";
+    public static readonly string path = "C:\\UnityML\\python_allInOne\\models\\123\\";
 
 
-    string path1 = "C:\\Programmieren\\UnityML\\python\\models\\123\\";
-    string path2 = "C:\\Programmieren\\UnityML\\python2\\models\\123\\";
+    string path1 = "C:\\UnityML\\python\\models\\123\\";
+    string path2 = "C:\\UnityML\\python2\\models\\123\\";
     private int maxCheckpoint = 0;
     private static int lastLoadedCheckpoint = 0;
     public static bool runningCheckpointThread = false;
@@ -79,7 +79,7 @@ public class LoadExternal : MonoBehaviour
 
     private IEnumerator CreateCheckpoints()
     {
-        ExecuteCommand("C:\\Programmieren\\UnityML\\python\\masterScript.bat", true);
+        ExecuteCommand("C:\\UnityML\\python\\masterScript.bat", true);
         yield break;
     }
 
@@ -118,7 +118,7 @@ public class LoadExternal : MonoBehaviour
 
 
         }
-        ExecuteCommand("C:\\Programmieren\\UnityML\\python2\\masterScript.bat", true, true);
+        ExecuteCommand("C:\\UnityML\\python2\\masterScript.bat", true, true);
 
         UnityEngine.Debug.Log("iteration " + iteration + " done!");
     }

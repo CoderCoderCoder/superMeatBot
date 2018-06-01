@@ -72,9 +72,9 @@ public class ThreadedJob
         {
             PrepareIteration(i);
             if (i == 1)
-                ExecuteCommand("C:\\Programmieren\\UnityML\\python_allInOne\\masterScript.bat");
+                ExecuteCommand("C:\\UnityML\\python_allInOne\\masterScript.bat");
             else
-                ExecuteCommand("C:\\Programmieren\\UnityML\\python_allInOne\\masterScript2.bat");
+                ExecuteCommand("C:\\UnityML\\python_allInOne\\masterScript2.bat");
 
             UnityEngine.Debug.Log("Iteration done: " + i);
 
@@ -86,7 +86,7 @@ public class ThreadedJob
 
     private void PrepareIteration(int i)
     {
-        using (System.IO.StreamWriter sw = File.CreateText("C:\\Programmieren\\UnityML\\python_allInOne\\trainer_config.yaml"))
+        using (System.IO.StreamWriter sw = File.CreateText("C:\\UnityML\\python_allInOne\\trainer_config.yaml"))
         {
             int steps = 5000 * i;
             sw.WriteLine(trainer_config.Replace("[STEPS]", steps + ""));
