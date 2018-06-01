@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
 	private const float jumpForce = 200f;
 	private const float axisForce = 30f;
 	private const float axisSpeed = 4f;
+    [SerializeField]
+    private float playerFriction = 0.05f;
 	public Vector3 startPosition;
 	private float deathTimer = 1f;
 	public bool playerDead = false;
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 		// Else simulate friction (need a better method)
 		else 
 		{
-			playerPhysicsBody.velocity *= 0.99f;
+			playerPhysicsBody.velocity *= (1f - playerFriction);
 			playerAnimator.SetFloat("moveSpeed", 0f);
 		}
 	}
