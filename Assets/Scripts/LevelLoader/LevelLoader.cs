@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour {
     private GameObject PlayerPrefab;
 
 	[SerializeField]
-	private GameObject ParticlesPrefab;
+	private GameObject OutOfBoundsPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -51,15 +51,13 @@ public class LevelLoader : MonoBehaviour {
                 }
             }
         }
+		CreateOutOfBounds();
     }
 
     private void CreatePlayer(int x, int y)
     {
         var newPlayer = Instantiate(PlayerPrefab, transform);
         newPlayer.transform.localPosition = new Vector3(x, y, 0f);
-
-		var newParticles = Instantiate(ParticlesPrefab, transform);
-		newParticles.transform.localPosition = new Vector3(x, y, 0f);
 
         Debug.Log("Creating player at " + x + ", " + y);
     }
@@ -74,6 +72,11 @@ public class LevelLoader : MonoBehaviour {
 	{
 		var newTrap = Instantiate(TrapPrefab, transform);
 		newTrap.transform.localPosition = new Vector3(x, y, 0f);
+	}
+
+	private void CreateOutOfBounds()
+	{
+		Instantiate(OutOfBoundsPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
 	}
 
     private LevelDefinition DeserializeFromLevelFile(string levelFilepathToLoad)

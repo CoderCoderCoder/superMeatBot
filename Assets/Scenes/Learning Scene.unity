@@ -157,7 +157,7 @@ MonoBehaviour:
   TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
   PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
     type: 2}
-  ParticlesPrefab: {fileID: 1689038619170946, guid: 39c29f52d91d0134eb787e56da55ce32,
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
     type: 2}
 --- !u!1 &1076711817
 GameObject:
