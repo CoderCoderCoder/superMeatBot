@@ -7,10 +7,10 @@ using UnityEngine.Analytics;
 public class PlayerController : MonoBehaviour
 {
 
-	[SerializeField]
-	private float playerFriction = 0.05f;
-	[SerializeField]
-	private float maxDownwardVelocity = 1.00f;
+    [SerializeField]
+    private float playerFriction = 0.05f;
+    [SerializeField]
+    private float maxDownwardVelocity = 1.00f;
     [SerializeField]
     private GameObject deathParticles;
 
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private const float axisForce = 30f;
     private const float axisSpeed = 4f;
     public Vector3 startPosition;
-    private float deathTimer = 1f;
+    public bool playerDied = false;
     public bool playerDead = false;
 
     private CoinCollector coinCollector;
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     public BlockType GetBlockType(int xOffset, int yOffset)
     {
-        Vector2Int intPos = new Vector2Int((int)(transform.localPosition.x-0.5f) + xOffset, (int)(transform.localPosition.y - 0.5f) + yOffset);
+        Vector2Int intPos = new Vector2Int((int)(transform.localPosition.x - 0.5f) + xOffset, (int)(transform.localPosition.y - 0.5f) + yOffset);
 
         if (intPos.x < 0 || intPos.y < 0)
             return BlockType.Air;
@@ -84,13 +84,10 @@ public class PlayerController : MonoBehaviour
 
         if (playerDead || (transform.localPosition).y < 0)
         {
-            deathTimer -= Time.deltaTime;
-            if (deathTimer <= 0f)
-            {
-                playerDead = false;
-                this.GetComponent<SpriteRenderer>().enabled = true;
-                ResetPlayer();
-            }
+            playerDied = true;
+            playerDead = false;
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            ResetPlayer();
         }
     }
 
@@ -121,11 +118,11 @@ public class PlayerController : MonoBehaviour
         // Else simulate friction (need a better method)
         else
         {
-			playerPhysicsBody.velocity *= (1f - playerFriction);
+            playerPhysicsBody.velocity *= (1f - playerFriction);
             playerAnimator.SetFloat("moveSpeed", 0f);
         }
 
-		ApplyDownwardVelocityConstraint();
+        ApplyDownwardVelocityConstraint();
     }
 
     private void ApplyDownwardVelocityConstraint()
@@ -187,7 +184,6 @@ public class PlayerController : MonoBehaviour
     public void KillPlayer(bool reset)
     {
         playerDead = reset;
-        deathTimer = 1f;
         if (deathParticles)
         {
             var deadEffect = Instantiate(deathParticles, transform.parent);
