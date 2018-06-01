@@ -109,6 +109,6 @@ public class EditorGrid : MonoBehaviour {
 
     private FileStream OpenMapFileForWriting()
     {
-        return File.Create(Application.persistentDataPath + "/level.level");
+        return File.Create(Application.persistentDataPath + "/level1.level");
     }
 }

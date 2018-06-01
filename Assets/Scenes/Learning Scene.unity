@@ -113,6 +113,246 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &74527717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 74527719}
+  - component: {fileID: 74527718}
+  m_Layer: 0
+  m_Name: LevelLoader (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &74527718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74527717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 7
+--- !u!4 &74527719
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74527717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &317925537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 317925539}
+  - component: {fileID: 317925538}
+  m_Layer: 0
+  m_Name: LevelLoader (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &317925538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 317925537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 1
+--- !u!4 &317925539
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 317925537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &509109558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 509109560}
+  - component: {fileID: 509109559}
+  m_Layer: 0
+  m_Name: LevelLoader (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &509109559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509109558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 8
+--- !u!4 &509109560
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509109558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60, y: -20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &600072362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 600072364}
+  - component: {fileID: 600072363}
+  m_Layer: 0
+  m_Name: LevelLoader (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &600072363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600072362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 4
+--- !u!4 &600072364
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600072362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -60, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &713024017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 713024019}
+  - component: {fileID: 713024018}
+  m_Layer: 0
+  m_Name: LevelLoader (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &713024018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 713024017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 2
+--- !u!4 &713024019
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 713024017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765168191
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +376,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 765168191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: -8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -160,6 +400,55 @@ MonoBehaviour:
   CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
   OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
     type: 2}
+  levelNr: 0
+--- !u!1 &774345004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 774345006}
+  - component: {fileID: 774345005}
+  m_Layer: 0
+  m_Name: LevelLoader (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &774345005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774345004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 3
+--- !u!4 &774345006
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774345004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076711817
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,4 +529,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1968058963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1968058965}
+  - component: {fileID: 1968058964}
+  m_Layer: 0
+  m_Name: LevelLoader (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1968058964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968058963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 6
+--- !u!4 &1968058965
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968058963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -60, y: -20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2129185684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2129185686}
+  - component: {fileID: 2129185685}
+  m_Layer: 0
+  m_Name: LevelLoader (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2129185685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2129185684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
+  PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
+    type: 2}
+  CoinPrefab: {fileID: 1677087057787766, guid: 240ad6d8d642df04e80abf6d8ec2ee63, type: 2}
+  OutOfBoundsPrefab: {fileID: 1600527057582170, guid: 6125a8cf03a16994aa1d2778b4dec273,
+    type: 2}
+  levelNr: 5
+--- !u!4 &2129185686
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2129185684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -60, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
