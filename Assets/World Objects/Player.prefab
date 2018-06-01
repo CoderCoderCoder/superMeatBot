@@ -149,6 +149,7 @@ MonoBehaviour:
   deathParticles: {fileID: 1689038619170946, guid: 39c29f52d91d0134eb787e56da55ce32,
     type: 2}
   playerFriction: 0.05
+  maxDownwardVelocity: 10
   startPosition: {x: -0.02981842, y: 1.25, z: 0}
   playerDead: 0
 --- !u!212 &212453867197354950

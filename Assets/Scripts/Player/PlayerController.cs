@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 	private const float axisSpeed = 4f;
     [SerializeField]
     private float playerFriction = 0.05f;
+    [SerializeField]
+    private float maxDownwardVelocity = 1.00f;
 	public Vector3 startPosition;
 	private float deathTimer = 1f;
 	public bool playerDead = false;
@@ -83,7 +85,16 @@ public class PlayerController : MonoBehaviour {
 			playerPhysicsBody.velocity *= (1f - playerFriction);
 			playerAnimator.SetFloat("moveSpeed", 0f);
 		}
+
+        ApplyDownwardVelocityConstraint();
 	}
+
+    private void ApplyDownwardVelocityConstraint()
+    {
+        var velocity = playerPhysicsBody.velocity;
+        velocity.y = Mathf.Max(-maxDownwardVelocity, velocity.y);
+        playerPhysicsBody.velocity = velocity;
+    }
 
 	public void TryPerformJump()
 	{
