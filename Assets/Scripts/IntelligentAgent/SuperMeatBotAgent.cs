@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SuperMeatBotAgent : Agent
 {
-    [Header("Specific to Ball3D")]
-    public GameObject ball;
-
     public override void InitializeAgent()
     {
 
@@ -16,8 +13,8 @@ public class SuperMeatBotAgent : Agent
     {
         AddVectorObs(gameObject.transform.rotation.z);
         AddVectorObs(gameObject.transform.rotation.x);
-        AddVectorObs((ball.transform.position - gameObject.transform.position));
-        AddVectorObs(ball.transform.GetComponent<Rigidbody>().velocity);
+//        AddVectorObs((ball.transform.position - gameObject.transform.position));
+//        AddVectorObs(ball.transform.GetComponent<Rigidbody>().velocity);
         SetTextObs("Testing " + gameObject.GetInstanceID());
     }
 
@@ -41,14 +38,13 @@ public class SuperMeatBotAgent : Agent
             SetReward(0.1f);
 
         }
-        if ((ball.transform.position.y - gameObject.transform.position.y) < -2f ||
-            Mathf.Abs(ball.transform.position.x - gameObject.transform.position.x) > 3f ||
-            Mathf.Abs(ball.transform.position.z - gameObject.transform.position.z) > 3f)
-        {
-            Done();
-            SetReward(-1f);
-        }
-
+//        if ((ball.transform.position.y - gameObject.transform.position.y) < -2f ||
+//            Mathf.Abs(ball.transform.position.x - gameObject.transform.position.x) > 3f ||
+//            Mathf.Abs(ball.transform.position.z - gameObject.transform.position.z) > 3f)
+//        {
+//            Done();
+//            SetReward(-1f);
+//        }
 
     }
 
@@ -57,8 +53,8 @@ public class SuperMeatBotAgent : Agent
         gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         gameObject.transform.Rotate(new Vector3(1, 0, 0), Random.Range(-10f, 10f));
         gameObject.transform.Rotate(new Vector3(0, 0, 1), Random.Range(-10f, 10f));
-        ball.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-        ball.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), 4f, Random.Range(-1.5f, 1.5f)) + gameObject.transform.position;
+//        ball.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+//        ball.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), 4f, Random.Range(-1.5f, 1.5f)) + gameObject.transform.position;
 
     }
 
