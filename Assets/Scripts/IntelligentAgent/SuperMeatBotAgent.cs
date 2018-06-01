@@ -23,9 +23,21 @@ public class SuperMeatBotAgent : Agent
 
     public override void CollectObservations()
     {
-		AddVectorObs(gameObject.transform.localPosition.x);
+        int observation = 0;
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x != 1 || y != 1)
+                {
+                    observation = observation << 3;
+                    observation += (int)player.GetBlockType(x, y);
+                }
+            }
+        }
+        AddVectorObs(observation);
         
-        SetTextObs("Testing " + gameObject.GetInstanceID());
+        //SetTextObs("Testing " + gameObject.GetInstanceID());
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
