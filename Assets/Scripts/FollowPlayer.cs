@@ -7,7 +7,7 @@ public class FollowPlayer : MonoBehaviour {
 	private GameObject player;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("Player");
+		player = GameObject.FindGameObjectWithTag("Player");
 		this.transform.localPosition = new Vector3(player.transform.localPosition.x, -5.5f, 10f); // Holy crap, hard coded numbers are baaaaaaaaad!!!
 	}
 	
