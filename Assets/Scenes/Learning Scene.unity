@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4ab3d4ea5934249a2ce3cb999b0979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WallPrefab: {fileID: 1661014102116410, guid: fc8458d33ff76164ea2a0fdf9241aea1, type: 2}
+  WallPrefab: {fileID: 1977115785730532, guid: 8a92fdad93f6bdf49b3de71089f44527, type: 2}
   TrapPrefab: {fileID: 1283046482594166, guid: ac59d2afeac08fe42b03cd60c25171fc, type: 2}
   PlayerPrefab: {fileID: 1182027226839458, guid: 15a5a979a3ef49149b64a5cc7ee0bc84,
     type: 2}
